@@ -1,11 +1,25 @@
 # MarkdownJ基础语法
 
-## 目录
-
-- [标题](#标题)  
-- [段落](#段落)  
-- [换行](#换行)  
-- [语义标记](#语义标记)
+- [MarkdownJ基础语法](#markdownj基础语法)
+  - [标题](#标题)
+    - [Markdoawn标题2](#markdoawn标题2)
+      - [Markdoawn标题3](#markdoawn标题3)
+  - [段落](#段落)
+  - [换行](#换行)
+  - [语义标记](#语义标记)
+    - [Markdoawn](#markdoawn)
+    - [HTML](#html)
+  - [引用](#引用)
+  - [公式](#公式)
+  - [代码](#代码)
+  - [列表](#列表)
+  - [表格](#表格)
+  - [表情](#表情)
+  - [链接](#链接)
+    - [引用类型链接](#引用类型链接)
+  - [图片](#图片)
+  - [导出为PDF等](#导出为pdf等)
+  - [特殊符号](#特殊符号)
 
 ---
 
@@ -185,6 +199,15 @@ This is another regular paragraph.
 ---
 
 ## 图片
+
+在vscode中,可在选项中搜索
+``markdown -> copy files:Destination ``  
+添加项可设置复制粘贴到md中的文件的保存位置,
+
+```json
+  "key": "**/*.md",
+  "value": "Assets/${documentBaseName}_Assets/${fileName}",
+```
 
 ![图片](MarkDown语法_Image/image.png "Magic Gardens")
 
