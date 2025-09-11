@@ -20,6 +20,9 @@
   - [图片](#图片)
   - [导出为PDF等](#导出为pdf等)
   - [特殊符号](#特殊符号)
+  - [一键生成目录](#一键生成目录)
+    - [使用 Markdown All in One 插件](#使用-markdown-all-in-one-插件)
+    - [使用 \[TOC\] 标签](#使用-toc-标签)
 
 ---
 
@@ -241,3 +244,16 @@ ctrl + shift + p 输入 Export
 度数 (°) — &#176;  
 圆周率 (π) — &#960;  
 
+## 一键生成目录
+
+### 使用 Markdown All in One 插件
+
+生成目录 打开 Markdown 文件，按下 Ctrl+Shift+P 调出命令面板。 输入 Create Table of Contents 或 toc，选择对应命令。 插件会自动在文件中插入目录。
+
+预览效果 按 Ctrl+Shift+V 预览 Markdown 文件，即可查看生成的目录。
+
+### 使用 [TOC] 标签
+
+插入标签 在需要生成目录的位置，直接输入 [TOC]。
+
+保存文件 保存文件后，VSCode 会根据标题自动生成目录。
