@@ -6,6 +6,7 @@
   - [使用``.gitignore``忽略不想上传的文件](#使用gitignore忽略不想上传的文件)
   - [Config](#config)
   - [多人协作](#多人协作)
+  - [.bat 快速push脚本](#bat-快速push脚本)
   - [待完成](#待完成)
 
 
@@ -53,6 +54,31 @@
 ``git config --global user.email johndoe@example.com`` 设置邮箱
 
 ## 多人协作
+
+## .bat 快速push脚本
+
+在 git 仓库所在文件夹下建立如下 bat 脚本
+
+自动 cd 到当前文件夹后，会提示输入 commit ,然后推送到分支（当前为main）
+
+```bat
+@echo off
+echo Processing...
+
+cd /d "%~dp0"
+echo Current path is : %CD%
+
+echo Adding files to git...
+git add .
+
+set /p commit_msg="PLZ type in git commit message: "
+git commit -m "%commit_msg%"
+
+git push origin main
+echo Push to default branch complete
+
+pause
+```
 
 ## 待完成
 
