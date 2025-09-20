@@ -6,7 +6,10 @@
   - [出现错误了怎么办](#出现错误了怎么办)
     - [commit 提交错误](#commit-提交错误)
       - [缓存区上传文件过大/上传错误](#缓存区上传文件过大上传错误)
+      - [删除缓存区文件](#删除缓存区文件)
+      - [完全删除 commit ⚠️](#完全删除-commit-️)
       - [commit 内容有误](#commit-内容有误)
+      - [合并当前 commit 到目标 commit 之间的所有 commit](#合并当前-commit-到目标-commit-之间的所有-commit)
   - [查看信息](#查看信息)
   - [有不想上传的文件](#有不想上传的文件)
   - [git 基本设置](#git-基本设置)
@@ -55,6 +58,18 @@
 
 ``git reset --soft <head>`` 撤销 commit 到指定的 head 版本，本地修改的文件不会变动
 
+#### 删除缓存区文件
+
+``git reset <head>``删除缓存区文件，本地修改的文件不会变动
+
+#### 完全删除 commit ⚠️
+
+``git rebase -i``编辑器修改 commit 历史，直接删去 commit 记录， ⚠️会修改本地文件⚠️
+
+``git rebase -i <commit hash before the one you want to delete>``
+
+``git push --force origin <branch>`` 将修改后的 commit 记录强制推送到github
+
 #### commit 内容有误
 
 ``git log --oneline``查看最新提交历史
@@ -64,6 +79,12 @@
 ``git commit --amend`` 启动编辑器修改 commit message
 
 ``git commit --amend --no-edit`` 不修改 commit message, 将暂存区里的新改动与上一个 commit 的内容合并，然后创建一个全新的 commit 来替换旧的
+
+#### 合并当前 commit 到目标 commit 之间的所有 commit
+
+``git reset --soft <第一个 commit 的 id>``将当前分支的状态切换到目标 commit中，并保留本地的修改以及暂存区的设置
+
+``git commit --amend`` 将现在的暂存区的内容直接 amend 到目标 commit
 
 ## 查看信息
 
