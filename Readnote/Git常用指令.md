@@ -12,6 +12,8 @@
       - [合并当前 commit 到目标 commit 之间的所有 commit](#合并当前-commit-到目标-commit-之间的所有-commit)
   - [查看信息](#查看信息)
   - [有不想上传的文件](#有不想上传的文件)
+    - [检查``.gitignore``规则是否已生效](#检查gitignore规则是否已生效)
+    - [更改``.gitignore``后但是无效](#更改gitignore后但是无效)
   - [git 基本设置](#git-基本设置)
     - [设置配置的作用范围](#设置配置的作用范围)
   - [多人协作](#多人协作)
@@ -120,6 +122,18 @@
 [GitHub 有一个十分详细的针对数十种项目及语言的 .gitignore 文件列表](https://github.com/github/gitignore)
 
 ``*.<后缀名>`` 忽略以<后缀名>为后缀的文件
+
+### 检查``.gitignore``规则是否已生效
+
+``git status --ignored`` 检查哪些文件被忽略
+
+``git check-ignore -v <特定文件名>`` 验证<特定文件名>是否被忽略
+
+### 更改``.gitignore``后但是无效
+
+1. 确认``.gitignore``和``.git``在同一目录
+2. 如果在添加新规则到 .gitignore 之前，文件已经被 Git 开始跟踪，那么 .gitignore 不能控制这些已经被跟踪的文件。你可以通过以下命令停止跟踪这些文件：
+   >``git rm --cached <特定文件名>`` <特定文件名>可以按与 gitignore 相同的格式批量停止跟踪
 
 ## git 基本设置
 
