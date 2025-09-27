@@ -6,10 +6,11 @@
   - [出现错误了怎么办](#出现错误了怎么办)
     - [commit 提交错误](#commit-提交错误)
       - [缓存区上传文件过大/上传错误](#缓存区上传文件过大上传错误)
-      - [删除缓存区文件](#删除缓存区文件)
-      - [完全删除 commit ⚠️](#完全删除-commit-️)
+      - [完全修改 commit 历史⚠️](#完全修改-commit-历史️)
       - [commit 内容有误](#commit-内容有误)
-      - [合并当前 commit 到目标 commit 之间的所有 commit](#合并当前-commit-到目标-commit-之间的所有-commit)
+      - [合并当前 commit 到目标 commit 之间的所有 commit ⚠️](#合并当前-commit-到目标-commit-之间的所有-commit-️)
+      - [撤销最近的提交（本地）](#撤销最近的提交本地)
+      - [撤销最近的提交（远程）](#撤销最近的提交远程)
   - [查看信息](#查看信息)
   - [有不想上传的文件](#有不想上传的文件)
     - [检查``.gitignore``规则是否已生效](#检查gitignore规则是否已生效)
@@ -58,13 +59,9 @@
 ``git log``查询提交日志，查询提交`head`  
 >`head`形如：``77e3f9eb02b96d7d2ea5def048fb4f1d07f19868``
 
-``git reset --soft <head>`` 撤销 commit 到指定的 head 版本，本地修改的文件不会变动
+``git reset <head>`` 撤销 commit 到指定的 head 版本，本地修改的文件不会变动
 
-#### 删除缓存区文件
-
-``git reset <head>``删除缓存区文件，本地修改的文件不会变动
-
-#### 完全删除 commit ⚠️
+#### 完全修改 commit 历史⚠️
 
 ``git rebase -i``编辑器修改 commit 历史，直接删去 commit 记录， ⚠️会修改本地文件⚠️
 
@@ -82,11 +79,36 @@
 
 ``git commit --amend --no-edit`` 不修改 commit message, 将暂存区里的新改动与上一个 commit 的内容合并，然后创建一个全新的 commit 来替换旧的
 
-#### 合并当前 commit 到目标 commit 之间的所有 commit
+#### 合并当前 commit 到目标 commit 之间的所有 commit ⚠️
 
 ``git reset --soft <第一个 commit 的 id>``将当前分支的状态切换到目标 commit中，并保留本地的修改以及暂存区的设置
 
 ``git commit --amend`` 将现在的暂存区的内容直接 amend 到目标 commit
+
+#### 撤销最近的提交（本地）
+
+``git log --oneline``查看最新提交历史
+
+``git reset --soft HEAD~1``撤销最近一次提交，常用于补充文件重新提交
+>修改的文件会保留在暂存区（git add 状态）
+>
+>工作区文件内容不变
+
+``git reset --mixed HEAD^``撤销最近一次提交，提交了不该提交的内容，想完全重来
+>等价于`git reset HEAD^`（默认模式）
+>
+>清空暂存区？（未 git add 状态）
+>
+>工作区文件内容不变
+
+`HEAD^` 替换为`<commit hash>`可跳转到目标commit
+
+
+#### 撤销最近的提交（远程）
+
+``git revert HEAD``撤销最近一次提交
+
+``git push origin <branch>``推送
 
 ## 查看信息
 
