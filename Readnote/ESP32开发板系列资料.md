@@ -6,6 +6,8 @@
 
 [b站教程视频（套件配套）-B站](https://www.bilibili.com/video/BV1RM4y1a7J5?p=1&vd_source=731f5d3856f35529400c9b81421eef25)
 
+[文档](https://docs.geeksman.com/esp32/Arduino)
+
 [ESP32开发板](https://github.com/Nicholas3388/LuaNode)
 
 [oled测试代码资料-百度网盘](https://pan.baidu.com/s/1z4XHkZ9VFvwwfV4HdHIEEg?pwd=8889) 提取码：8889
